@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1651702638 source:c:\edu\c++ projects\first_project\first_project\main.cpp
+	<stdio.h>
+	<locale.h>
+	"Smat.h"
+	<time.h>
+	<stdlib.h>
+	<string.h>
+	<stdlib.h>
+
+1651408645 c:\edu\c++ projects\first_project\first_project\smat.h
+
+1651414654 source:c:\edu\c++ projects\first_project\first_project\file2.c
+	<stdio.h>
+	<locale.h>
+
