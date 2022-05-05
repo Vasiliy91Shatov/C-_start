@@ -12,6 +12,9 @@
 // + ф. для перевода символы в числа
 #include <stdlib.h>
 
+// указатель на структуры тифа пайл
+FILE *f;
+
 
 //структуры данных
 struct fraction
@@ -489,7 +492,7 @@ int main()
     gets(a);
     int b = atoi(a);
     printf("%d",b * 2);*/
-    Fraction f1, f2, result;
+    /*Fraction f1, f2, result;
     f1.integer = -1; //целое
     f1.divisible = 1; //делимое
     f1.divider = 5;  //делитель
@@ -506,12 +509,12 @@ int main()
         printf("      ""%d/%d\n", f1.divisible,f1.divider);
     printf("%3d & %d/%d\n",f2.integer, f2.divisible, f2.divider);*/
     // вывод через ф.
-    FRprint(f1);
+    /*FRprint(f1);
     printf("\n");
     FRprint(f2);
     printf("\n");
     FRsum(f1,f2,&result);
-    FRprint(result);
+    FRprint(result);*/
 
 
     //перевод в простой вид
@@ -530,6 +533,25 @@ int main()
             f1.divisible *= -1;
         printf("%3d & %d/%d",f1.integer,f1.divisible,f1.divider);
     }*/
+    // файловая система
+    f = fopen("File1.txt", "w");
+    if (f == 0); // файл не содался
+    fprintf(f, "Новая запись в файл,  Ура!");  // запись в файл
+    fclose(f);                                  // закрытие файла
+    f = fopen("File1.txt", "r");
+    char word[256];
+    while(!feof(f)) // пока не достигнут конец файла feof(f) == 1 если конец файла не достигнут, feof(f) == 0, если конец файла достигнут
+    {
+        fscanf(f, "%s", word);
+        printf("%s_", word);
+    }
+    /*do{
+
+    }while();*/
+    //fscanf(f, "%s", word);
+    //printf("%s", word);
+    fclose(f);
+
 
 
     return 0;
