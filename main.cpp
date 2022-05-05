@@ -534,7 +534,7 @@ int main()
         printf("%3d & %d/%d",f1.integer,f1.divisible,f1.divider);
     }*/
     // файловая система
-    f = fopen("File1.txt", "w");
+    /*f = fopen("File1.txt", "w");
     if (f == 0); // файл не содался
     fprintf(f, "Новая запись в файл,  Ура!");  // запись в файл
     fclose(f);                                  // закрытие файла
@@ -545,14 +545,36 @@ int main()
         fscanf(f, "%s", word);
         printf("%s_", word);
     }
-    /*do{
-
-    }while();*/
     //fscanf(f, "%s", word);
     //printf("%s", word);
-    fclose(f);
+    fclose(f);*/
 
-
+    // выделение памяти
+    //int * area = malloc(123); //выделение памяти для 123 байт
+    //int * area = (int*) malloc(123); //выделение памяти для 123 байт c разметкой
+    //printf("%lu", sizeof(int)); // выводит размер в байтах типа данных int
+    const int stop = 10;
+    int * array1 = (int*) malloc(sizeof(int) * 10);   //выделение памяти для 10 переменных типа int по факту мы объявили массив
+    int * array2 = (int*) calloc(stop, sizeof(int));  //выделяет память и очищает её содержимое, необходимо указать сколько элементов и их размер
+    for (int i = 0; i < stop; i++){
+        *(array1 + i) = i * 10;
+        printf("%d ", *(array1 + i));
+    }
+    //free(array1);    //освобождение памяти
+    printf("\n");
+    for (int i = 0; i < stop; i++){
+        *(array2 + i) = i * 10;
+        printf("%d ", *(array2 + i));
+    }
+    free(array2);
+    printf("\n");
+    const int newstop = 20;
+    array1 = (int*) realloc(array1, newstop * sizeof(int)); //изменение области памяти
+    for (int i = 0; i < newstop; i++){
+        *(array1 + i) = i * 10;
+        printf("%d ", *(array1 + i));
+    }
+    free(array1);
 
     return 0;
 }
