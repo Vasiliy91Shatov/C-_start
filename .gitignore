@@ -1,4 +1,6 @@
-First_project
-Smat
-bin
-obj
+bin/*
+obj/*
+file1.txt
+First_project.cbp
+First_project.depend
+First_project.layout
